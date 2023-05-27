@@ -17,20 +17,89 @@ const { title } = Astro.props;
     <link rel="stylesheet" href="src/styles/global.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,200;0,400;0,600;0,700;0,800;0,900;1,400&family=Roboto:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,200;0,400;0,600;0,700;0,800;0,900;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
+  <script>
+    import Parallax from "parallax-js";
+    var scene = document.getElementById("background-scene");
+    var parallaxInstance = new Parallax(scene);
+  </script>
   <body>
+    <div class="stars-wrapper">
+      <div class="background" id="background-scene">
+        <div data-depth="-0.05" class="star star-1"></div>
+        <div data-depth="0.02" class="star star-2"></div>
+        <div data-depth="0.04" class="star star-3"></div>
+      </div>
+    </div>
     <div class="wrapper">
       <slot />
+    </div>
+    <div class="name">
+      <h1>Tim Lauffs</h1>
+      <p class="sub-title">Software Engineer</p>
+      <button class="btn-primary btn-contact"><p>Contact Me!</p></button>
     </div>
   </body>
 </html>
 <style>
+  .stars-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+  }
+
+  .background {
+    width: 100%;
+    height: 100%;
+    background-color: var(--sky);
+    overflow: hidden;
+  }
+  .star {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+  .star-1 {
+    background-image: url("/stars_1.png");
+  }
+  .star-2 {
+    background-image: url("/stars_2.png");
+  }
+  .star-3 {
+    background-image: url("/stars_3.png");
+  }
+  .name {
+    position: fixed;
+    text-align: end;
+    z-index: -1;
+    top: 8rem;
+    right: 6rem;
+  }
+  .sub-title {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
+  .btn-contact {
+    margin-top: 2.5em;
+  }
   .wrapper {
     height: 100vh;
     height: 100dvh;

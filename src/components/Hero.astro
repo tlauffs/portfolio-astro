@@ -3,22 +3,11 @@
 
 <script>
   import Parallax from "parallax-js";
-
-  var scene = document.getElementById("background-scene");
-  var parallaxInstance = new Parallax(scene);
-
   var buildingsScene = document.getElementById("building-scene");
   var parallaxInstance = new Parallax(buildingsScene, {
     limitY: 0,
   });
 </script>
-<div class="stars-wrapper">
-  <div class="background" id="background-scene">
-    <div data-depth="-0.05" class="star star-1"></div>
-    <div data-depth="0.02" class="star star-2"></div>
-    <div data-depth="0.04" class="star star-3"></div>
-  </div>
-</div>
 <div class="buildings" id="building-scene">
   <div data-depth="1.6" class="building-wrapper">
     <div class="building-inner building-4-inner">
@@ -44,46 +33,13 @@
       <div class="building-after building-1-after"></div>
     </div>
   </div>
-</div>
+</div>"
 <div class="content"></div>
 <style>
   .content {
     height: 200vh;
-    background: red;
+    background: var(--primary);
     margin-top: 100vh;
-  }
-
-  .stars-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform-origin: center;
-    transform: translateZ(-200px) scale(21);
-    z-index: -2;
-  }
-
-  .background {
-    width: 100%;
-    height: 100%;
-    background-color: var(--sky);
-    overflow: hidden;
-  }
-  .star {
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-  }
-  .star-1 {
-    background-image: url("/stars_1.png");
-  }
-  .star-2 {
-    background-image: url("/stars_2.png");
-  }
-  .star-3 {
-    background-image: url("/stars_3.png");
   }
 
   .buildings {
