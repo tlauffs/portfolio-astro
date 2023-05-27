@@ -1,0 +1,23 @@
+:root {
+    --sky: #030c13;
+    --primary: #090e0d;
+    --secondary: #6aa69a;
+    --highlight: #d6722f;
+    --off-white: #f2d4bf;
+  }
+  html,
+  body {
+    font-family: "Roboto", sans-serif;
+  }
+  body {
+    background-color: var(--sky);
+  }
+  p,h1,h2,h3 {
+    color: var(--off-white);
+  }
+  h1,h2,h3 {
+    font-family: 'Roboto Serif', serif;
+  }
+  h1 {
+    font-size: 4rem;
+  }

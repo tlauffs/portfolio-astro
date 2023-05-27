@@ -1,0 +1,182 @@
+---
+---
+
+<script>
+  import Parallax from "parallax-js";
+
+  var scene = document.getElementById("background-scene");
+  var parallaxInstance = new Parallax(scene);
+
+  var buildingsScene = document.getElementById("building-scene");
+  var parallaxInstance = new Parallax(buildingsScene, {
+    limitY: 0,
+  });
+</script>
+<div class="stars-wrapper">
+  <div class="background" id="background-scene">
+    <div data-depth="-0.05" class="star star-1"></div>
+    <div data-depth="0.02" class="star star-2"></div>
+    <div data-depth="0.04" class="star star-3"></div>
+  </div>
+</div>
+<div class="buildings" id="building-scene">
+  <div data-depth="1.6" class="building-wrapper">
+    <div class="building-inner building-4-inner">
+      <div class="building building-4"></div>
+      <div class="building-after building-4-after"></div>
+    </div>
+  </div>
+  <div data-depth="1.2" class="building-wrapper">
+    <div class="building-inner building-3-inner">
+      <div class="building building-3"></div>
+      <div class="building-after building-3-after"></div>
+    </div>
+  </div>
+  <div data-depth="0.8" class="building-wrapper">
+    <div class="building-inner building-2-inner">
+      <div class="building building-2"></div>
+      <div class="building-after building-2-after"></div>
+    </div>
+  </div>
+  <div data-depth="0.4" class="building-wrapper">
+    <div class="building-inner building-1-inner">
+      <div class="building building-1"></div>
+      <div class="building-after building-1-after"></div>
+    </div>
+  </div>
+</div>
+<div class="content"></div>
+<style>
+  .content {
+    height: 200vh;
+    background: red;
+    margin-top: 100vh;
+  }
+
+  .stars-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform-origin: center;
+    transform: translateZ(-200px) scale(21);
+    z-index: -2;
+  }
+
+  .background {
+    width: 100%;
+    height: 100%;
+    background-color: var(--sky);
+    overflow: hidden;
+  }
+  .star {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+  .star-1 {
+    background-image: url("/stars_1.png");
+  }
+  .star-2 {
+    background-image: url("/stars_2.png");
+  }
+  .star-3 {
+    background-image: url("/stars_3.png");
+  }
+
+  .buildings {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    z-index: -1;
+  }
+
+  .building-wrapper {
+    bottom: 0;
+    margin-top: auto;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+  }
+
+  .building-inner {
+    width: 100%;
+    height: 100%;
+  }
+
+  .building-1-inner {
+    transform: translateY(-5%);
+  }
+
+  .building-2-inner {
+    transform: translateZ(-3px) translateY(-15%) scale(1.3);
+  }
+
+  .building-3-inner {
+    transform: translateZ(-6px) translateY(-30%) scale(1.6);
+  }
+
+  .building-4-inner {
+    transform: translateZ(-9px) translateY(-45%) scale(1.9);
+  }
+
+  .building {
+    position: absolute;
+    bottom: 0;
+    background-size: auto 100%;
+    background-position: center;
+    width: 150%;
+    margin-left: -25%;
+  }
+
+  .building-1 {
+    background-image: url("/building1.svg");
+    height: min(14rem, 40%);
+  }
+
+  .building-2 {
+    background-image: url("/building2.svg");
+    height: min(12rem, 38%);
+  }
+
+  .building-3 {
+    background-image: url("/building3.svg");
+    height: min(10rem, 36%);
+  }
+
+  .building-4 {
+    background-image: url("/building4.svg");
+    height: min(8rem, 34%);
+  }
+
+  .building-after {
+    position: absolute;
+    transform: translateY(100%);
+    bottom: 0;
+    height: 20%;
+    width: 150%;
+    margin-left: -25%;
+  }
+
+  .building-1-after {
+    background-color: #090e0d;
+  }
+
+  .building-2-after {
+    background-color: #141b1a;
+  }
+
+  .building-3-after {
+    background-color: #202a29;
+  }
+
+  .building-4-after {
+    background-color: #2d3635;
+  }
+</style>
