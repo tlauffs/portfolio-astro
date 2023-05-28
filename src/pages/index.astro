@@ -1,10 +1,73 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import Header from "../components/Header.astro";
 ---
 
+<script>
+  import Parallax from "parallax-js";
+  var scene = document.getElementById("background-scene");
+  var parallaxInstance = new Parallax(scene);
+</script>
 <Layout title="Portfolio Tim Lauffs">
-  <Hero />
+  <div class="stars-wrapper">
+    <div class="background" id="background-scene">
+      <div data-depth="-0.05" class="star star-1"></div>
+      <div data-depth="0.02" class="star star-2"></div>
+      <div data-depth="0.04" class="star star-3"></div>
+    </div>
+  </div>
+  <Header />
+  <div class="wrapper">
+    <Hero />
+  </div>
 </Layout>
 
-<style></style>
+<style>
+  .wrapper {
+    height: 100vh;
+    height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 10px;
+    transform-style: preserve-3d;
+  }
+
+  .stars-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .background {
+    width: 100%;
+    height: 100%;
+    background-color: var(--sky);
+    overflow: hidden;
+  }
+  .star {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+  .star-1 {
+    background: var(--star-color);
+    -webkit-mask-image: url("/stars_1.png");
+    mask-image: url("/stars_1.png");
+  }
+  .star-2 {
+    background: var(--star-color);
+    -webkit-mask-image: url("/stars_2.png");
+    mask-image: url("/stars_2.png");
+    mask-size: cover;
+  }
+  .star-3 {
+    background: var(--star-color);
+    -webkit-mask-image: url("/stars_3.png");
+    mask-image: url("/stars_3.png");
+    mask-size: cover;
+  }
+</style>

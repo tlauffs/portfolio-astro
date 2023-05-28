@@ -1,4 +1,5 @@
 ---
+import ThemeSwitch from "../components/ThemeSwitch.astro";
 ---
 
 <script>
@@ -8,6 +9,20 @@
     limitY: 0,
   });
 </script>
+<div class="name">
+  <div class="name-inner">
+    <h1 class="title">Tim Lauffs</h1>
+    <div>
+      <div class="flex-sub-title">
+        <ThemeSwitch />
+        <p class="sub-title">Software Engineer</p>
+      </div>
+      <button class="btn-primary btn-contact"
+        ><p class="text-shadow">Contact Me!</p></button
+      >
+    </div>
+  </div>
+</div>
 <div class="buildings" id="building-scene">
   <div data-depth="1.6" class="building-wrapper">
     <div class="building-inner building-4-inner">
@@ -33,13 +48,94 @@
       <div class="building-after building-1-after"></div>
     </div>
   </div>
-</div>"
+</div>
 <div class="content"></div>
 <style>
   .content {
     height: 200vh;
     background: var(--primary);
     margin-top: 100vh;
+  }
+
+  .name {
+    position: fixed;
+    text-align: end;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+    transform: translateZ(-80px) scale(9);
+    right: 70px !important;
+    display: flex;
+    justify-content: end;
+  }
+
+  .name-inner {
+    margin-top: 8rem;
+    margin-right: 6rem;
+  }
+
+  .title {
+    position: relative;
+  }
+
+  .title::before {
+    content: "";
+    width: 100%;
+    height: 0.2rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: var(--secondary);
+    z-index: 1;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 300ms ease;
+  }
+
+  .title:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .flex-sub-title {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+
+  .sub-title {
+    font-size: 2rem;
+    font-weight: 300;
+    position: relative;
+    display: inline-block;
+  }
+
+  .sub-title::before {
+    content: "";
+    width: 100%;
+    height: 0.2rem;
+    position: absolute;
+    bottom: -0.4rem;
+    left: 0;
+    background: var(--highlight);
+    z-index: 1;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 300ms ease;
+  }
+
+  .sub-title:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom right;
+  }
+
+  .btn-contact {
+    margin-top: 2.5em;
+    display: block;
+    margin-left: auto;
   }
 
   .buildings {
@@ -92,22 +188,30 @@
   }
 
   .building-1 {
-    background-image: url("/building1.svg");
+    background: var(--building-1-color);
+    -webkit-mask-image: url("/building1.svg");
+    mask-image: url("/building1.svg");
     height: min(14rem, 40%);
   }
 
   .building-2 {
-    background-image: url("/building2.svg");
+    background: var(--building-2-color);
+    -webkit-mask-image: url("/building2.svg");
+    mask-image: url("/building2.svg");
     height: min(12rem, 38%);
   }
 
   .building-3 {
-    background-image: url("/building3.svg");
+    background: var(--building-3-color);
+    -webkit-mask-image: url("/building3.svg");
+    mask-image: url("/building3.svg");
     height: min(10rem, 36%);
   }
 
   .building-4 {
-    background-image: url("/building4.svg");
+    background: var(--building-4-color);
+    -webkit-mask-image: url("/building4.svg");
+    mask-image: url("/building4.svg");
     height: min(8rem, 34%);
   }
 
@@ -121,18 +225,32 @@
   }
 
   .building-1-after {
-    background-color: #090e0d;
+    background-color: var(--building-1-color);
   }
 
   .building-2-after {
-    background-color: #141b1a;
+    background-color: var(--building-2-color);
   }
 
   .building-3-after {
-    background-color: #202a29;
+    background-color: var(--building-3-color);
   }
 
   .building-4-after {
-    background-color: #2d3635;
+    background-color: var(--building-4-color);
+  }
+
+  @media (max-width: 56rem) {
+    .name {
+      justify-content: center;
+      text-align: center;
+    }
+    .name-inner {
+      margin-right: 0;
+    }
+    .btn-contact {
+      margin: auto;
+      margin-top: 2rem;
+    }
   }
 </style>

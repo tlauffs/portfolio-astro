@@ -1,0 +1,128 @@
+---
+---
+
+<script>
+  const toggleSwitch = document.querySelector(
+    ".toggle-input"
+  ) as HTMLInputElement;
+  const currentTheme = localStorage.getItem("theme");
+
+  if (currentTheme) {
+    document.documentElement.setAttribute("data-theme", currentTheme);
+    if (currentTheme === "light") {
+      toggleSwitch.checked = true;
+    }
+  }
+
+  function switchTheme(e: any) {
+    if (e.target.checked) {
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
+    }
+  }
+
+  toggleSwitch.addEventListener("change", switchTheme, false);
+</script>
+
+<div class="wrapper">
+  <label class="switch">
+    <input class="toggle-input" type="checkbox" />
+    <span class="slider round"></span>
+    <div class="switch-art"></div>
+  </label>
+</div>
+
+<style>
+  .wrapper {
+    display: inline-block;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: calc(3.8rem * var(--scale));
+    height: calc(2.2rem * var(--scale));
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-color-back);
+    transition: all 400ms ease;
+  }
+
+  .slider::before {
+    position: absolute;
+    content: "";
+    height: calc(1.8rem * var(--scale));
+    aspect-ratio: 1;
+    left: calc(0.2rem * var(--scale));
+    bottom: calc(0.2rem * var(--scale));
+    background-color: white;
+    transition: all 400ms ease;
+  }
+
+  input:checked + .slider::before {
+    transform: translateX(calc(1.6rem * var(--scale)));
+  }
+
+  .slider.round {
+    border-radius: calc(4rem * var(--scale));
+  }
+
+  .slider.round::before {
+    border-radius: 50%;
+    background-color: var(--switch-color);
+  }
+
+  .switch-art {
+    transition: all 400ms ease;
+  }
+
+  .toggle-input:not(:checked) ~ .switch-art {
+    position: absolute;
+    top: calc(0.4rem * var(--scale));
+    left: calc(0.9rem * var(--scale));
+    width: calc(0.7rem * var(--scale));
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #969fa2;
+    box-shadow: calc(-0.7rem * var(--scale)) calc(0.6rem * var(--scale)) 0px
+        calc(-0.15rem * var(--scale)) #969fa2,
+      calc(0.1rem * var(--scale)) calc(0.7rem * var(--scale)) 0px
+        calc(-0.15rem * var(--scale)) #969fa2,
+      calc(1.9rem * var(--scale)) calc(0.7rem * var(--scale)) 0px
+        calc(-0.25rem * var(--scale)) #f1f3f3,
+      calc(1.2rem * var(--scale)) calc(1rem * var(--scale)) 0px
+        calc(-0.3rem * var(--scale)) #f1f3f3,
+      calc(1.8rem * var(--scale)) calc(-0.1rem * var(--scale)) 0px
+        calc(-0.3rem * var(--scale)) #f1f3f3;
+  }
+
+  .toggle-input:checked ~ .switch-art {
+    position: absolute;
+    top: calc(0.9rem * var(--scale));
+    left: calc(1.3rem * var(--scale));
+    width: calc(0.9rem * var(--scale));
+    height: calc(0.7rem * var(--scale));
+    border-radius: 50%;
+    background-color: #faf3e5;
+    box-shadow: calc(-0.4rem * var(--scale)) calc(0.35rem * var(--scale)) 0px
+        calc(-0.1rem * var(--scale)) #faf3e5,
+      calc(0.1rem * var(--scale)) calc(0.3rem * var(--scale)) 0px -0 #faf3e5;
+  }
+</style>

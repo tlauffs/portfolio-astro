@@ -2,16 +2,66 @@
   --sky: #030c13;
   --primary: #090e0d;
   --secondary: #6aa69a;
+  --secondary-rgb: 106, 166, 154;
   --highlight: #d6722f;
+  --highlight-rgb: 214, 114, 47;
   --off-white: #f2d4bf;
+  --off-white-rgb: 242, 212, 191;
+  --transparent: 10, 10, 10;
+  --text-shadow: 0.7;
+
+  --switch-color: #bac0c2;
+  --switch-color-back: #294961;
+  --scale: 1;
+
+  --building-1-color: #0d0e09;
+  --building-2-color: #141b1a;
+  --building-3-color: #202a29;
+  --building-4-color: #2d3635;
+  --star-color: #ffffff;
 }
+
+[data-theme="light"] {
+  --sky: #d8c9c9;
+  --primary: #dbd8d8;
+  --secondary: #718F79;
+  --secondary-rgb: 142, 87, 87;
+  --highlight: #8E5757;
+  --highlight-rgb: 142, 87, 87;
+  --off-white: #110903;
+  --off-white-rgb: 17, 9, 3;
+  --text-shadow: 0.2;
+  --transparent: 160, 160, 160;
+
+  --switch-color: #daa544;
+  --switch-color-back: #91aca7;
+
+  --building-1-color: #dfd9d9;
+  --building-2-color: #acb8b6;
+  --building-3-color: #46645f;
+  --building-4-color: #405757;
+
+  --star-color: transparent;
+}
+
+* {
+  transition: background-color 500ms ease;
+}
+
 html,
 body {
   font-family: "Roboto", sans-serif;
 }
+
 body {
   background-color: var(--sky);
 }
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
+}
+
 p,
 h1,
 h2,
@@ -27,6 +77,12 @@ h3 {
 h1 {
   font-size: 4.5rem;
   font-weight: 200;
+}
+
+@media (max-width: 42rem) {
+  h1 {
+    font-size: 3.5rem;
+  }
 }
 
 button {
@@ -63,9 +119,16 @@ button {
   transform: translateX(0);
 }
 
-button > p {
+.btn-primary:focus-visible::before {
+  transform: translateX(0);
+}
+
+.btn-primary > p {
   color: #f0f0f0;
   font-family: "Roboto", serif;
   font-size: 1.25rem;
-  text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+}
+
+.text-shadow {
+  text-shadow: 0px 0px 15px rgba(0, 0, 0, var(--text-shadow));
 }
