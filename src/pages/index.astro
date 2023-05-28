@@ -39,14 +39,33 @@ import Header from "../components/Header.astro";
     left: 0;
     right: 0;
     bottom: 0;
+    overflow: hidden;
   }
 
   .background {
+
     width: 100%;
     height: 100%;
-    background-color: var(--sky);
+    /*
+    background: var(--sky);
     overflow: hidden;
+    */
   }
+
+   
+  .background::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: var(--background-position);
+    width: 100%;
+    height: 200%; 
+    background-image: var(--sky-grad);
+    transition: top 450ms ease;
+  }
+
+  
+
   .star {
     background-size: cover;
     background-position: center;

@@ -1,5 +1,26 @@
 :root {
   --sky: #030c13;
+  
+  --sky-grad: linear-gradient(
+    180deg,
+    rgba(216, 201, 201, 1) 0%,
+    rgba(221, 142, 142, 1) 32%,
+    rgba(3, 12, 19, 1) 59%,
+    rgba(3, 12, 19, 1) 100%
+  );
+  --background-position: -50%;
+  
+  /*
+  --sky-grad: linear-gradient(
+    0deg,
+    rgba(216, 201, 201, 1) 0%,
+    rgba(221, 142, 142, 1) 32%,
+    rgba(3, 12, 19, 1) 59%,
+    rgba(3, 12, 19, 1) 100%
+  );
+  --background-position: 0%;
+*/
+
   --primary: #090e0d;
   --secondary: #6aa69a;
   --secondary-rgb: 106, 166, 154;
@@ -7,14 +28,14 @@
   --highlight-rgb: 214, 114, 47;
   --off-white: #f2d4bf;
   --off-white-rgb: 242, 212, 191;
-  --transparent: 10, 10, 10;
+  --transparent: rgba(10, 10, 10, 0.3);
   --text-shadow: 0.7;
 
   --switch-color: #bac0c2;
   --switch-color-back: #294961;
   --scale: 1;
 
-  --building-1-color: #0d0e09;
+  --building-1-color: #090e0d;
   --building-2-color: #141b1a;
   --building-3-color: #202a29;
   --building-4-color: #2d3635;
@@ -23,20 +44,40 @@
 
 [data-theme="light"] {
   --sky: #d8c9c9;
+    
+  --sky-grad: linear-gradient(
+    180deg,
+    rgba(216, 201, 201, 1) 0%,
+    rgba(221, 142, 142, 1) 32%,
+    rgba(3, 12, 19, 1) 59%,
+    rgba(3, 12, 19, 1) 100%
+  );
+  --background-position: 0%;
+  
+  /*
+  --sky-grad: linear-gradient(
+    0deg,
+    rgba(216, 201, 201, 1) 0%,
+    rgba(221, 142, 142, 1) 32%,
+    rgba(3, 12, 19, 1) 59%,
+    rgba(3, 12, 19, 1) 100%
+  );
+  --background-position: -130%;
+*/
   --primary: #dbd8d8;
-  --secondary: #718F79;
+  --secondary: #718f79;
   --secondary-rgb: 142, 87, 87;
-  --highlight: #8E5757;
+  --highlight: #8e5757;
   --highlight-rgb: 142, 87, 87;
   --off-white: #110903;
   --off-white-rgb: 17, 9, 3;
   --text-shadow: 0.2;
-  --transparent: 160, 160, 160;
+  --transparent: rgba(160, 160, 160, 0.3);
 
   --switch-color: #daa544;
   --switch-color-back: #91aca7;
 
-  --building-1-color: #dfd9d9;
+  --building-1-color: #dbd8d8;
   --building-2-color: #acb8b6;
   --building-3-color: #46645f;
   --building-4-color: #405757;
@@ -45,7 +86,8 @@
 }
 
 * {
-  transition: background-color 500ms ease;
+  transition: color 450ms ease, background 450ms ease;
+
 }
 
 html,
