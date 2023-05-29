@@ -1,0 +1,47 @@
+---
+---
+
+<section>
+  <h2>Contact</h2>
+  <p>
+    Whether you have a opportunity, question or just want to say hi, don't
+    hesitate to use the form or reach out to me on one of my socials!
+  </p>
+  <form name="contact" method="POST" data-netlify="true">
+    <p>
+      <input type="text" name="name" placeholder="Name" />
+    </p>
+    <p>
+      <input type="email" name="email" placeholder="E-mail" />
+    </p>
+    <p>
+      <input type="text" name="subject" placeholder="Subject" />
+    </p>
+    <p>
+      <textarea name="message" placeholder="Message"></textarea>
+    </p>
+    <p>
+      <button class="btn-primary btn-form" type="submit"
+        ><p>Send Message</p></button
+      >
+    </p>
+  </form>
+</section>
+
+<style>
+  .btn-form {
+    padding: 0.5rem 2rem;
+  }
+  .btn-form > p {
+    font-size: 0.9rem;
+  }
+  input::placeholder {
+    color: var(--off-white);
+    font-family: "Roboto", sans-serif;
+  }
+
+  textarea::placeholder {
+    color: var(--off-white);
+    font-family: "Roboto", sans-serif;
+  }
+</style>

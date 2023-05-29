@@ -2,9 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
 import Header from "../components/Header.astro";
 ---
-
 <script>
   import Parallax from "parallax-js";
   var scene = document.getElementById("background-scene");
@@ -25,6 +27,15 @@ import Header from "../components/Header.astro";
       <div id="about">
         <About />
       </div>
+      <div id="experience">
+        <Experience />
+      </div>
+      <div id="projects">
+        <Projects />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
     </div>
   </div>
 </Layout>
@@ -40,7 +51,6 @@ import Header from "../components/Header.astro";
   }
 
   .content {
-    height: 200vh;
     background: var(--primary);
     margin-top: 100vh;
     transition: background 750ms ease;
