@@ -49,14 +49,7 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
     </div>
   </div>
 </div>
-<div class="content"></div>
 <style>
-  .content {
-    height: 200vh;
-    background: var(--primary);
-    margin-top: 100vh;
-  }
-
   .name {
     position: fixed;
     text-align: end;
@@ -77,6 +70,7 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
 
   .title {
     position: relative;
+    transition: all 750ms ease;
   }
 
   .title::before {
@@ -111,6 +105,7 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
     font-weight: 300;
     position: relative;
     display: inline-block;
+    transition: all 750ms ease;
   }
 
   .sub-title::before {
@@ -185,12 +180,15 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
     background-position: center;
     width: 150%;
     margin-left: -25%;
+    transition: all 750ms ease;
   }
 
   .building-1 {
     background: var(--building-1-color);
     -webkit-mask-image: url("/building1.svg");
     mask-image: url("/building1.svg");
+    mask-size: auto 100%;
+    -webkit-mask-size: auto 100%;
     height: min(14rem, 40%);
   }
 
@@ -198,6 +196,8 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
     background: var(--building-2-color);
     -webkit-mask-image: url("/building2.svg");
     mask-image: url("/building2.svg");
+    mask-size: auto 100%;
+    -webkit-mask-size: auto 100%;
     height: min(12rem, 38%);
   }
 
@@ -205,6 +205,8 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
     background: var(--building-3-color);
     -webkit-mask-image: url("/building3.svg");
     mask-image: url("/building3.svg");
+    mask-size: auto 100%;
+    -webkit-mask-size: auto 100%;
     height: min(10rem, 36%);
   }
 
@@ -212,16 +214,19 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
     background: var(--building-4-color);
     -webkit-mask-image: url("/building4.svg");
     mask-image: url("/building4.svg");
+    mask-size: auto 100%;
+    -webkit-mask-size: auto 100%;
     height: min(8rem, 34%);
   }
 
   .building-after {
     position: absolute;
-    transform: translateY(100%);
+    transform: translateY(98%);
     bottom: 0;
     height: 20%;
     width: 150%;
     margin-left: -25%;
+    transition: all 750ms ease;
   }
 
   .building-1-after {
@@ -251,6 +256,9 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
     .btn-contact {
       margin: auto;
       margin-top: 2rem;
+    }
+    .flex-sub-title {
+      justify-content: center;
     }
   }
 </style>

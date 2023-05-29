@@ -1,0 +1,44 @@
+---
+---
+
+<section>
+  <h2><span class="hand">👋</span> About Me</h2>
+  <p>
+    Hello, I'm Tim, a 25 year old Software Development. I'm currently in my
+    final semester studying cognitve computer science. Sometimes I like messing
+    around with different Web Technologies so feel free to check out my projects
+    or reach out to me in the contact form below.
+  </p>
+</section>
+<style>
+  .hand {
+    display: inline-block;
+    transform-origin: 75% 75%;
+  }
+  .hand:hover {
+    animation: hello-animation ease 2000ms;
+  }
+  @keyframes hello-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+</style>

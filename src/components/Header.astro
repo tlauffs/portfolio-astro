@@ -1,11 +1,35 @@
 ---
 ---
 
+<script>
+  const menuButton = document.querySelector(".menu-btn") as HTMLElement;
+  const closeButton = document.querySelector(".close-btn") as HTMLElement;
+  const header = document.querySelector("header") as HTMLElement;
+  menuButton!.addEventListener("click", (event) => {
+    menuButton!.classList.add("not-visable");
+    header!.classList.add("header-visable");
+  });
+  closeButton!.addEventListener("click", (event) => {
+    menuButton!.classList.remove("not-visable");
+    header!.classList.remove("header-visable");
+  });
+
+  const aboutButton = document.querySelector(".btn-nav-about") as HTMLElement;
+  const wrapper = document.querySelector(".wrapper");
+  const about = document.getElementById("about")!.offsetTop;
+  aboutButton!.addEventListener("click", (event) => {
+    wrapper!.scroll({ top: about});
+  });
+  const homeButton = document.querySelector(".btn-nav-home") as HTMLElement;
+  homeButton!.addEventListener("click", (event) => {
+    wrapper!.scroll({ top: 0});
+  });
+</script>
 <header>
   <img class="logo" src="/only_white_logo.png" alt="" />
   <nav>
-    <button class="btn-nav"><p class="text-shadow">Home</p></button>
-    <button class="btn-nav"><p class="text-shadow">About</p></button>
+    <button class="btn-nav btn-nav-home"><p class="text-shadow">Home</p></button>
+    <button class="btn-nav btn-nav-about"><p class="text-shadow">About</p></button>
     <button class="btn-nav"><p class="text-shadow">Projects</p></button>
     <button class="btn-nav"><p class="text-shadow">Experience</p></button>
     <button class="btn-nav"><p class="text-shadow">Contact</p></button>
@@ -78,13 +102,19 @@
       </a>
     </div>
   </div>
+  <div class="close-btn">
+    <span>&#x2715;</span>
+  </div>
 </header>
+<div class="menu-btn">
+  <span>&#9776;</span>
+</div>
 <style>
   header {
     z-index: 1;
     position: fixed;
     height: 100%;
-    min-width: 9rem;
+    width: 9rem;
     background-color: rgba(var(--transparent), 0.3);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
@@ -93,23 +123,71 @@
     align-items: center;
     justify-content: space-between;
     overflow-y: auto;
+    transition: all ease 650ms;
+    transform-origin: left center;
   }
+
+  .header-visable {
+    transform: translateX(0);
+  }
+
+  .menu-btn {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    font-size: 1.8rem;
+    color: var(--off-white);
+    visibility: hidden;
+    z-index: 2;
+    cursor: pointer;
+    transition: all ease 200ms;
+  }
+
+  .close-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--off-white);
+    visibility: hidden;
+    z-index: 2;
+    cursor: pointer;
+    transition: color ease 200ms !important;
+  }
+
+  .close-btn:hover {
+    color: var(--secondary);
+  }
+
+  .not-visable {
+    transform: translateX(-4rem) !important;
+  }
+
+  .menu-btn:hover {
+    transform: scale(1.3);
+    color: var(--secondary);
+  }
+
   .logo {
     width: 6rem;
     margin-top: 2rem;
   }
+
   nav {
     display: flex;
     flex-direction: column;
     width: 100%;
     border-top: 1px rgba(var(--off-white-rgb), 0.3) solid;
+    transition: all 750ms ease;
   }
   .btn-nav {
     background-color: transparent;
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     width: 100%;
     border-bottom: 1px rgba(var(--off-white-rgb), 0.3) solid;
     position: relative;
+    transition: all 750ms ease;
   }
   .btn-nav::before {
     content: "";
@@ -164,5 +242,17 @@
 
   .icon:focus-visible svg {
     fill: rgba(var(--secondary-rgb), 1);
+  }
+
+  @media (max-width: 56rem) {
+    Header {
+      transform: translateX(-100%);
+    }
+    .menu-btn {
+      visibility: visible;
+    }
+    .close-btn {
+      visibility: visible;
+    }
   }
 </style>
