@@ -2,19 +2,30 @@
 ---
 
 <script>
-  const handleSubmit = (event) => {
+  const successAlert = document.querySelector(".success-alert") as HTMLElement;
+  const errorAlert = document.querySelector(".error-alert") as HTMLElement;
+
+  const handleSubmit = (event: any) => {
     event.preventDefault();
 
     const myForm = event.target;
-    const formData = new FormData(myForm);
+    const formData: FormData = new FormData(myForm);
 
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      // @ts-ignore
       body: new URLSearchParams(formData).toString(),
     })
-      .then(() => alert("Thank you for your submission"))
-      .catch((error) => alert(error));
+      .then(() => {
+        alert("hallo")
+        successAlert!.classList.remove("not-visable");
+        errorAlert!.classList.add("not-visable");
+      })
+      .catch((error) => {
+        successAlert!.classList.add("not-visable");
+        errorAlert!.classList.remove("not-visable");
+      });
   };
 
   document.querySelector("form")!.addEventListener("submit", handleSubmit);
@@ -25,18 +36,20 @@
     Whether you have a opportunity, question or just want to say hi, don't
     hesitate to use the form or reach out to me on one of my socials!
   </p>
+  <div class="success-alert not-visable"><p>worked</p></div>
+  <div class="error-alert not-visable"><p>failed</p></div>
   <form name="contact" method="POST" data-netlify="true">
     <p>
-      <input type="text" name="name" placeholder="Name" />
+      <input type="text" name="name" placeholder="Name" required />
     </p>
     <p>
-      <input type="email" name="email" placeholder="E-mail" />
+      <input type="email" name="email" placeholder="E-mail" required />
     </p>
     <p>
-      <input type="text" name="subject" placeholder="Subject" />
+      <input type="text" name="subject" placeholder="Subject" required />
     </p>
     <p>
-      <textarea name="message" placeholder="Message"></textarea>
+      <textarea name="message" placeholder="Message" required></textarea>
     </p>
     <p>
       <button class="btn-primary btn-form" type="submit"
@@ -61,5 +74,10 @@
   textarea::placeholder {
     color: var(--off-white);
     font-family: "Roboto", sans-serif;
+  }
+
+  .not-visable {
+    visibility: hidden;
+    height: 0;
   }
 </style>
