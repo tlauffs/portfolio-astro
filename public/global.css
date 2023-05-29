@@ -10,6 +10,12 @@
   );
   --background-position: -130%;
 
+  --gradient: linear-gradient(
+    270deg,
+    rgba(106, 166, 154, 1) 0%,
+    rgba(214, 114, 47, 1) 100%
+  );
+
   --primary: #090e0d;
   --secondary: #6aa69a;
   --secondary-rgb: 106, 166, 154;
@@ -43,6 +49,12 @@
     rgba(3, 12, 19, 1) 100%
   );
   --background-position: -10%;
+
+  --gradient: linear-gradient(
+    270deg,
+    rgba(106, 166, 154, 1) 0%,
+    rgba(214, 114, 47, 1) 100%
+  );
 
   --primary: #eeecec;
   --secondary: #718f79;
@@ -140,7 +152,6 @@ section {
 .info {
   margin-top: 1rem;
 }
-
 
 .icons {
   margin-bottom: 2rem;

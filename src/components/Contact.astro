@@ -18,7 +18,6 @@
       body: new URLSearchParams(formData).toString(),
     })
       .then(() => {
-        alert("hallo")
         successAlert!.classList.remove("not-visable");
         errorAlert!.classList.add("not-visable");
       })
@@ -36,27 +35,40 @@
     Whether you have a opportunity, question or just want to say hi, don't
     hesitate to use the form or reach out to me on one of my socials!
   </p>
-  <div class="success-alert not-visable"><p>worked</p></div>
-  <div class="error-alert not-visable"><p>failed</p></div>
   <form name="contact" method="POST" data-netlify="true">
     <p>
-      <input type="text" name="name" placeholder="Name" required />
+      <input class="test" type="text" name="name" required placeholder="Name" />
+      <div class="border-bottom"></div>
     </p>
-    <p>
-      <input type="email" name="email" placeholder="E-mail" required />
-    </p>
-    <p>
-      <input type="text" name="subject" placeholder="Subject" required />
-    </p>
-    <p>
-      <textarea name="message" placeholder="Message" required></textarea>
-    </p>
-    <p>
+  </form>
+  <p>
+    <input type="email" name="email" required placeholder="E-mail" />
+    <div class="border-bottom"></div>
+  </p>
+  <p>
+    <input type="text" name="subject" required placeholder="Subject" />
+    <div class="border-bottom"></div>
+  </p>
+  <p>
+    <textarea name="message" required placeholder="Message"></textarea>
+    <div class="border-bottom"></div>
+  </p>
+  <p>
+    <div class="submit">
       <button class="btn-primary btn-form" type="submit"
         ><p>Send Message</p></button
       >
-    </p>
-  </form>
+      <div class="success-alert not-visable">
+        <p>Thank You! Your message has been sent.</p>
+      </div>
+      <div class="error-alert not-visable">
+        <p>
+          Looks like there was a problem. Feel free to contact me on one of my
+          socials.
+        </p>
+      </div>
+    </div>
+  </p>
 </section>
 
 <style>
@@ -67,17 +79,75 @@
     font-size: 0.9rem;
   }
   input::placeholder {
-    color: var(--off-white);
+    color: rgba(var(--off-white-rgb), 0.6);
     font-family: "Roboto", sans-serif;
   }
 
   textarea::placeholder {
-    color: var(--off-white);
+    color: rgba(var(--off-white-rgb), 0.6);
     font-family: "Roboto", sans-serif;
+  }
+  .submit {
+    position: relative;
+    display: flex;
+    align-items: center;
   }
 
   .not-visable {
     visibility: hidden;
-    height: 0;
+  }
+
+  .success-alert {
+    position: absolute;
+    left: 11rem;
+  }
+
+  .error-alert {
+    position: absolute;
+    left: 0rem;
+    top: 3.5rem;
+  }
+
+  @media (max-width: 42rem) {
+    .success-alert {
+      left: 0rem;
+      top: 3.5rem;
+    }
+  }
+
+  .form-field {
+    position: relative;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    height: 1rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-top: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 0.1rem var(--off-white) solid;
+    color: var(--off-white);
+    transition: border 200ms ease;
+  }
+
+  textarea {
+    height: 5rem;
+    resize: vertical;
+    margin-bottom: 1rem;
+  }
+
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 4rem var(--off-white) inset;
+  }
+
+  input:focus {
+    border-bottom: 0.1rem var(--secondary) solid;
+  }
+
+  textarea:focus {
+    border-bottom: 0.1rem var(--secondary) solid;
   }
 </style>
