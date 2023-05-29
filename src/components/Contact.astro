@@ -38,37 +38,33 @@
   <form name="contact" method="POST" data-netlify="true">
     <p>
       <input class="test" type="text" name="name" required placeholder="Name" />
-      <div class="border-bottom"></div>
+    </p>
+    <p>
+      <input type="email" name="email" required placeholder="E-mail" />
+    </p>
+    <p>
+      <input type="text" name="subject" required placeholder="Subject" />
+    </p>
+    <p>
+      <textarea name="message" required placeholder="Message"></textarea>
+    </p>
+    <p>
+      <div class="test">
+        <button class="btn-primary btn-form" type="submit"
+          ><p>Send Message</p></button
+        >
+        <div class="success-alert not-visable">
+          <p>Thank You! Your message has been sent.</p>
+        </div>
+        <div class="error-alert not-visable">
+          <p>
+            Looks like there was a problem. Feel free to contact me on one of my
+            socials.
+          </p>
+        </div>
+      </div>
     </p>
   </form>
-  <p>
-    <input type="email" name="email" required placeholder="E-mail" />
-    <div class="border-bottom"></div>
-  </p>
-  <p>
-    <input type="text" name="subject" required placeholder="Subject" />
-    <div class="border-bottom"></div>
-  </p>
-  <p>
-    <textarea name="message" required placeholder="Message"></textarea>
-    <div class="border-bottom"></div>
-  </p>
-  <p>
-    <div class="submit">
-      <button class="btn-primary btn-form" type="submit"
-        ><p>Send Message</p></button
-      >
-      <div class="success-alert not-visable">
-        <p>Thank You! Your message has been sent.</p>
-      </div>
-      <div class="error-alert not-visable">
-        <p>
-          Looks like there was a problem. Feel free to contact me on one of my
-          socials.
-        </p>
-      </div>
-    </div>
-  </p>
 </section>
 
 <style>
@@ -87,7 +83,7 @@
     color: rgba(var(--off-white-rgb), 0.6);
     font-family: "Roboto", sans-serif;
   }
-  .submit {
+  .test {
     position: relative;
     display: flex;
     align-items: center;
