@@ -29,7 +29,7 @@
   --off-white: #f2d4bf;
   --off-white-rgb: 242, 212, 191;
   --transparent: rgba(10, 10, 10, 0.3);
-  --text-shadow: 0.7;
+  --text-shadow: rgba(0, 0, 0, 0.7);
 
   --switch-color: #bac0c2;
   --switch-color-back: #294961;
@@ -71,8 +71,8 @@
   --highlight-rgb: 142, 87, 87;
   --off-white: #110903;
   --off-white-rgb: 17, 9, 3;
-  --text-shadow: 0.2;
-  --transparent: rgba(160, 160, 160, 0.3);
+  --text-shadow: rgba(255, 255, 255, 0.4);
+  --transparent: rgba(180, 180, 180, 0.3);
 
   --switch-color: #daa544;
   --switch-color-back: #91aca7;
@@ -155,7 +155,7 @@ button {
 }
 
 .btn-primary {
-  padding: 1rem 2rem;
+  padding: 0.6rem 2rem;
   background-color: var(--highlight);
   border-radius: 2rem;
   overflow: hidden;
@@ -194,6 +194,6 @@ button {
 }
 
 .text-shadow {
-  text-shadow: 0px 0px 15px rgba(0, 0, 0, var(--text-shadow));
+  text-shadow: 0px 0px 15px var(--text-shadow);
   transition: all 750ms ease;
 }
