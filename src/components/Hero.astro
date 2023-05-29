@@ -8,6 +8,14 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
   var parallaxInstance = new Parallax(buildingsScene, {
     limitY: 0,
   });
+  const wrapper = document.querySelector(".wrapper");
+  const contactButton = document.querySelector(
+    ".contact-btn-large"
+  ) as HTMLElement;
+  const contact = document.getElementById("contact")!.offsetTop;
+  contactButton!.addEventListener("click", (event) => {
+    wrapper!.scroll({ top: contact });
+  });
 </script>
 <div class="name">
   <div class="name-inner">
@@ -17,7 +25,7 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
         <ThemeSwitch />
         <p class="sub-title">Software Engineer</p>
       </div>
-      <button class="btn-primary btn-contact"
+      <button class="btn-primary btn-contact contact-btn-large"
         ><p class="text-shadow">Contact Me!</p></button
       >
     </div>

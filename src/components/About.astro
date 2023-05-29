@@ -1,6 +1,26 @@
 ---
 ---
 
+<script>
+  const wrapper = document.querySelector(".wrapper");
+  const studyButton = document.querySelector(".link-study") as HTMLElement;
+  const experience = document.getElementById("experience")!.offsetTop;
+  studyButton!.addEventListener("click", (event) => {
+    wrapper!.scroll({ top: experience });
+  });
+
+  const projectButton = document.querySelector(".link-project") as HTMLElement;
+  const projects = document.getElementById("projects")!.offsetTop;
+  projectButton!.addEventListener("click", (event) => {
+    wrapper!.scroll({ top: projects });
+  });
+
+  const contactButton = document.querySelector(".link-contact") as HTMLElement;
+  const contact = document.getElementById("contact")!.offsetTop;
+  contactButton!.addEventListener("click", (event) => {
+    wrapper!.scroll({ top: contact });
+  });
+</script>
 <section>
   <h2><span class="hand">👋</span> About Me</h2>
   <p>

@@ -31,6 +31,20 @@
   experienceButton!.addEventListener("click", (event) => {
     wrapper!.scroll({ top: experience });
   });
+  const projectButton = document.querySelector(
+    ".btn-nav-projects"
+  ) as HTMLElement;
+  const projects = document.getElementById("projects")!.offsetTop;
+  projectButton!.addEventListener("click", (event) => {
+    wrapper!.scroll({ top: projects });
+  });
+  const contactButton = document.querySelector(
+    ".btn-nav-contact"
+  ) as HTMLElement;
+  const contact = document.getElementById("contact")!.offsetTop;
+  contactButton!.addEventListener("click", (event) => {
+    wrapper!.scroll({ top: contact });
+  });
 </script>
 <header>
   <img class="logo" src="/only_white_logo.png" alt="" />
@@ -43,8 +57,12 @@
     <button class="btn-nav btn-nav-experience"
       ><p class="text-shadow">Experience</p></button
     >
-    <button class="btn-nav"><p class="text-shadow">Projects</p></button>
-    <button class="btn-nav"><p class="text-shadow">Contact</p></button>
+    <button class="btn-nav btn-nav-projects"
+      ><p class="text-shadow">Projects</p></button
+    >
+    <button class="btn-nav btn-nav-contact"
+      ><p class="text-shadow">Contact</p></button
+    >
   </nav>
   <div class="icons">
     <div class="icon">
