@@ -80,6 +80,7 @@
 
 * {
   scroll-behavior: smooth;
+  scrollbar-color: var(--building-2-color) var(--building-4-color); 
 }
 
 html,
