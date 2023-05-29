@@ -80,7 +80,15 @@
 
 * {
   scroll-behavior: smooth;
-  scrollbar-color: var(--building-2-color) var(--building-4-color); 
+  scrollbar-color: var(--building-2-color) var(--building-4-color);
+}
+
+::-webkit-scrollbar {
+  background: var(--building-2-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--building-4-color);
 }
 
 html,
