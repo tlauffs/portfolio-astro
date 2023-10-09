@@ -18,7 +18,6 @@
   });
 
   document.body.addEventListener("click", function (event) {
-      console.log(event.target)
         if (event.target !== header && event.target !== menuButton && event.target !== menuButtonText) {
             menuButton!.classList.remove("not-visable");
             header!.classList.remove("header-visable");
