@@ -3,16 +3,28 @@
 
 <script>
   const menuButton = document.querySelector(".menu-btn") as HTMLElement;
+  const menuButtonText = document.querySelector(".menu-btn-text") as HTMLElement;
   const closeButton = document.querySelector(".close-btn") as HTMLElement;
   const header = document.querySelector("header") as HTMLElement;
+
   menuButton!.addEventListener("click", (event) => {
-    menuButton!.classList.add("not-visable");
-    header!.classList.add("header-visable");
+  menuButton!.classList.add("not-visable");
+  header!.classList.add("header-visable");
   });
+
   closeButton!.addEventListener("click", (event) => {
     menuButton!.classList.remove("not-visable");
     header!.classList.remove("header-visable");
   });
+
+  document.body.addEventListener("click", function (event) {
+      console.log(event.target)
+        if (event.target !== header && event.target !== menuButton && event.target !== menuButtonText) {
+          console.log('yes2')
+            menuButton!.classList.remove("not-visable");
+            header!.classList.remove("header-visable");
+        }
+    });
 
   const aboutButton = document.querySelector(".btn-nav-about") as HTMLElement;
   const wrapper = document.querySelector(".wrapper");
@@ -138,7 +150,7 @@
   </div>
 </header>
 <div class="menu-btn btn-primary">
-  <span>&#9776;</span>
+  <span class="menu-btn-text">&#9776;</span>
 </div>
 <style>
   header {
