@@ -24,12 +24,12 @@
         }
     });
 
-  const aboutButton = document.querySelector(".btn-nav-about") as HTMLElement;
+  /* const aboutButton = document.querySelector(".btn-nav-about") as HTMLElement; */
   const wrapper = document.querySelector(".wrapper");
-  const about = document.getElementById("about")!.offsetTop;
+  /* const about = document.getElementById("about")!.offsetTop;
   aboutButton!.addEventListener("click", (event) => {
     wrapper!.scroll({ top: about });
-  });
+  }); */
   const homeButton = document.querySelector(".btn-nav-home") as HTMLElement;
   homeButton!.addEventListener("click", (event) => {
     wrapper!.scroll({ top: 0 });
@@ -61,14 +61,14 @@
   <nav>
     <button class="btn-nav btn-nav-home"><p class="text-shadow">Home</p></button
     >
-    <button class="btn-nav btn-nav-about"
+    <!-- <button class="btn-nav btn-nav-about"
       ><p class="text-shadow">About</p></button
-    >
+    > -->
+    <button class="btn-nav btn-nav-projects">
+      <p class="text-shadow">Projects</p>
+    </button>
     <button class="btn-nav btn-nav-experience"
       ><p class="text-shadow">Experience</p></button
-    >
-    <button class="btn-nav btn-nav-projects"
-      ><p class="text-shadow">Projects</p></button
     >
     <button class="btn-nav btn-nav-contact"
       ><p class="text-shadow">Contact</p></button
