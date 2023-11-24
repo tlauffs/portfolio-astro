@@ -22,8 +22,12 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
     <h1 class="title">Tim Lauffs</h1>
     <div>
       <div class="flex-sub-title">
-        <ThemeSwitch />
         <p class="sub-title">Software Engineer</p>
+      </div>
+      <div class="flex-sub-title">
+        <ThemeSwitch />
+        
+        <p class="sub-sub-title">change to light/dark mode</p>
       </div>
       <button class="btn-primary btn-contact contact-btn-large"
         ><p class="text-shadow">Contact Me!</p></button
@@ -116,9 +120,19 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
     display: inline-block;
     transition: all 750ms ease;
   }
+
+  .sub-sub-title {
+    font-size: 1.1rem;
+    line-height: 100%;
+    transition: all 750ms ease;
+  }
+
   @media (max-width: 42rem) {
     .sub-title {
       font-size: 1.5rem;
+    }
+    .sub-sub-title {
+      font-size: 1rem;
     }
   }
 
